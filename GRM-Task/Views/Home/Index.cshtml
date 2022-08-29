@@ -1,0 +1,53 @@
+﻿@model IEnumerable<GRM_Task.Models.Item>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="container">
+<div class="row">
+    <h5 class="pb-4">Pairs left: @ViewData["PairsCount"]</h5>
+</div>
+<div class="col-12 text-center">
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">@Html.DisplayNameFor(m=>m.Position)</th>
+      <th scope="col">@Html.DisplayNameFor(m=>m.Name)</th>
+      <th scope="col">@Html.DisplayNameFor(m=>m.Score)</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var m in Model)
+            {
+             <tr>
+               <td>@m.Position</td>
+               <td>@m.Name</td>
+               <td>@m.Score</td>
+             </tr>   
+            }
+  </tbody>
+</table>
+<div class="row">
+        <div class="col-12">
+            <button class="btn btn-primary" type="button" id="btnStart">Start</button>
+        </div>
+</div>
+@if((int)ViewData["PairsCount"]!=0)
+    {
+         <div class="row pt-4">
+            <div class="col-12">
+                <div id="formPartial"></div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <h4 class="pt-4">Comparing is over!</h4>
+    }
+</div>
+</div>
+<script>
+document.getElementById("btnStart").onclick = function() {startFunction()};
+function startFunction() {
+    $("#formPartial").load('@Url.Action("FormPartialView","Home")');
+}
+</script>

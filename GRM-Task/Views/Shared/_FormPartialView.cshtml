@@ -1,0 +1,43 @@
+﻿@model GRM_Task.Models.CompareItemsModel
+<div class="container-fluid">
+    <div class="row">
+        <div class="text-center col-12">
+            <h4>Compare items</h4>
+        </div>
+    </div>
+    <form asp-controller="Home" asp-action="Index" method="post">
+        <div class="container-fluid">
+            <div class="row">
+                <div asp-validation-summary="ModelOnly" class="col-12"></div>
+                <div class="form-group col-4">
+                    <label asp-for="Name1" class="control-label">Item Name:</label>
+                    <input asp-for="Name1" class="form-control" readonly/>
+                    <span asp-validation-for="Name1"></span>
+                </div>
+                <div class="form-group col-2 text-center">
+                        <label asp-for="Value1" class="control-label">Value:</label>
+                        <input asp-for="Value1" class="form-control text-center" min="0" required />
+                        <span asp-validation-for="Value1"></span>
+                </div>
+                <div class="form-group col-2 text-center">
+                        <label asp-for="Value2" class="control-label">Value:</label>
+                        <input asp-for="Value2" class="form-control text-center" min="0" required />
+                        <span asp-validation-for="Value2"></span>
+                </div>
+                 <div class="form-group col-4">
+                    <label asp-for="Name2" class="control-label">Item Name:</label>
+                    <input asp-for="Name2" class="form-control" readonly/>
+                    <span asp-validation-for="Name2"></span>
+                </div>
+            </div>
+             <div class="row">
+                    <div class="col-12 text-center">
+                        <div class="form-group text-center">
+                            <input type="submit" value="Compare" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </form>
+</div>
+
